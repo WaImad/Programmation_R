@@ -1,3 +1,2 @@
 # Programmation_R
-Cours et exercice de programmation R
- TIDIANE EST MOCHE
+Cours et exercice de programmation R de Imad Farsi
