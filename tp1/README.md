@@ -1,2 +1,3 @@
-# Programmation_R
-Cours et exercice de programmation R de Imad Farsi huhu
+# Programmation_R TP 1 
+
+Ici se trouve le tp 1 réalisé sur R-Studio
