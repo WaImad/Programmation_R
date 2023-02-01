@@ -33,13 +33,22 @@ brutToNet2 <- function(salaire, contrat)
 brutToNet2(1500,"non-cadre")
 
 brutToNet3<- function(salaire, statut, prelevement=0.075, temps = 1)
+ {
+  if (prelevement > 1 || prelevement < 0 )
   {
-    if (prelevement > 0 | prelevement < 100 & temps > 0 | temps < 1 )
-    {
-  salaire_net = brutToNet2(salaire, statut)* temps
-  salaire_av_ap = list
-  } else {
-    print("ERROR : rate and time must be in range(0%,100%)") } 
-}
+    print("ERROR : rate and time must be in range(0,100)")}
+  if(temps > 1 || temps < 0)
+  {
+    print("ERROR : rate and time must be in range(0,100)")}
+  if (statut == "cadre")
+  {
+  salaire_net = (salaire* (1-0.25))
+  salaire_net_ap <- (salaire* (1-0.25))* (1-prelevement) * temps}
+  if (statut =="non-cadre")
+  {
+    salaire_net = (salaire* (1-0.22))
+  salaire_net_ap <-(salaire* (1-0.22))* (1-prelevement) * temps}
+  liste = list(salaire_net, salaire_net_ap)
+  return(liste) }
 
-brutToNet3(3000,"cadre")
+brutToNet3(3000, "cadre")
