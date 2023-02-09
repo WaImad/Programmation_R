@@ -4,8 +4,9 @@
 install.packages("readxl")
 library(readxl)
 setwd("L:/DUT/STID/Promo 2022/ifarsi/R/tp2")
-df <- read_excel(path  = "pokemon.xlsx", sheet = "pokemon")
 
+df <- read_excel(path  = "pokemon.xslx", sheet = "pokemon")
+df <- pokemon
 # b. Combien de lignes, colonnes sont présentes dans ce dataset (utilisez les fonctions adaptées) ?
 
 nrow(df)
@@ -118,18 +119,43 @@ resultat_2
 # a. Filtrez sur les pokemons qui ont 150 ou plus d’attack puis trier le résultat par ordre décroissant
 # d’attack.
 # 
-indices <- df[df$attack >=150, ]
-indices
-rang_4a <-order( - indices)
+df <- df[df$attack >=150, ]
+df
+rang_4a <- order( df$attack, decreasing = T)
 df <- df[rang_4a,]
 df
 
-# 
+
 # b. Filtrez sur les pokemons de type dragon,ghost,psychic et dark
+
+type <- c("dark","ghost","psychic","dark")
+df <- df[df$type == "dark" | "ghost" | "psychic" |"dragon", c("nom","type"),]
+
 # c. Filtrez sur les pokemons de type fire avec plus de 100 d’attack, puis trier le résultat par ordre
 # décroissant d’attack.
+
+df <- df[df$attack >100 & df$type =="fire", ]
+df
+rang_4b <- order( - df$attack)
+df <- df[rang_4b,]
+df
 # d. Filtrez sur les pokemons qui ont entre 100 et 150 de speed. Les trier par speed décroissant.
+
+df <- df[df$speed < 150 & df$speed > 100,]
+df
+rang_4c <- order(-df$speed)
+df <- df[rang_4c,]
+df
 # e. Filtrez sur les pokémons qui ont des valeurs manquantes sur la variable height_m.
+
+indic_e <- df[is.na(df$weight_kg),]
+indic_e
 # f. Filtrez sur les pokemons qui ont des valeurs renseignées à la fois pour la variable weight_kg et la
 # variable height.
+
+indic_f <- df(df$weight_kg, na.rm = T)
+
 # g. Filtrez sur les pokemons pesant plus de 250 kg et affichez le résultat pour vérifier.
+
+indic_g <- df[df$weight_kg > 250,]
+indic_g
