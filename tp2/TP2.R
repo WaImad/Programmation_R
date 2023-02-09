@@ -112,3 +112,24 @@ df <- df[rang_2,]
 df
 resultat_2 <- df[1:10,2]
 resultat_2
+
+# 2.4 Exercice 4 : Tris et Filtres
+# 
+# a. Filtrez sur les pokemons qui ont 150 ou plus d’attack puis trier le résultat par ordre décroissant
+# d’attack.
+# 
+indices <- df[df$attack >=150, ]
+indices
+rang_4a <-order( - indices)
+df <- df[rang_4a,]
+df
+
+# 
+# b. Filtrez sur les pokemons de type dragon,ghost,psychic et dark
+# c. Filtrez sur les pokemons de type fire avec plus de 100 d’attack, puis trier le résultat par ordre
+# décroissant d’attack.
+# d. Filtrez sur les pokemons qui ont entre 100 et 150 de speed. Les trier par speed décroissant.
+# e. Filtrez sur les pokémons qui ont des valeurs manquantes sur la variable height_m.
+# f. Filtrez sur les pokemons qui ont des valeurs renseignées à la fois pour la variable weight_kg et la
+# variable height.
+# g. Filtrez sur les pokemons pesant plus de 250 kg et affichez le résultat pour vérifier.
